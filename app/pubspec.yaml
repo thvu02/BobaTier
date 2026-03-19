@@ -1,0 +1,56 @@
+name: bobatier
+description: Rank every sip. Map every shop. Share your boba map with friends.
+publish_to: 'none'
+version: 1.0.0+2
+
+environment:
+  sdk: '>=3.2.0 <4.0.0'
+
+dependencies:
+  flutter:
+    sdk: flutter
+  flutter_riverpod: ^3.3.1
+  riverpod_annotation: ^4.0.2
+  google_maps_flutter: ^2.5.3
+  google_maps_flutter_android: ^2.19.1
+  go_router: ^17.1.0
+  cloud_firestore: ^6.1.3
+  firebase_auth: ^6.2.0
+  firebase_storage: ^13.1.0
+  firebase_core: ^4.5.0
+  cloud_functions: ^6.0.7
+  firebase_messaging: ^16.1.2
+  firebase_analytics: ^12.1.3
+  firebase_crashlytics: ^5.0.8
+  firebase_app_check: ^0.4.1+5
+  firebase_remote_config: ^6.2.0
+  flutter_image_compress: ^2.1.0
+  uuid: ^4.2.2
+  dart_geohash: ^2.0.1
+  cached_network_image: ^3.3.1
+  image_picker: ^1.0.7
+  intl: ^0.20.2
+  url_launcher: ^6.2.4
+  async: ^2.13.0
+  geolocator: ^14.0.2
+  google_sign_in: ^7.2.0
+  flutter_launcher_icons: ^0.13.1
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+  flutter_lints: ^6.0.0
+  riverpod_generator: ^4.0.3
+  build_runner: ^2.4.8
+
+flutter:
+  uses-material-design: true
+  assets:
+    - assets/images/
+
+flutter_launcher_icons:
+  android: "launcher_icon"
+  ios: true
+  image_path: "assets/images/bobatier.jpg"
+  adaptive_icon_background: "#2D1B0D" # Color or image path
+  adaptive_icon_foreground: "assets/images/bobatier.jpg" # Image path

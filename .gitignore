@@ -1,0 +1,54 @@
+# ── Build artifacts & generated files ───────────────────────────────────────
+**/node_modules/
+**/build/
+**/.dart_tool/
+**/.gradle/
+**/.kotlin/
+**/lib/*.js
+**/lib/*.js.map
+
+# Flutter-specific generated files
+app/.packages
+app/.flutter-plugins
+app/.flutter-plugins-dependencies
+app/config.json
+app/.cxx/
+
+# Unsupported platforms (Android only — iOS/web/desktop not used)
+app/ios/
+app/linux/
+app/windows/
+app/macos/
+app/web/
+
+# ── Android secrets — DO NOT COMMIT ─────────────────────────────────────────
+app/android/app/google-services.json
+app/android/key.properties
+app/android/upload-keystore.jks
+
+# ── Cloud Functions secrets ──────────────────────────────────────────────────
+functions/.env
+functions/.env.*
+
+# ── Firebase service account / admin SDK keys ────────────────────────────────
+*-service-account.json
+*serviceAccount*.json
+service-account*.json
+
+# ── Firebase project config (contains project ID) ───────────────────────────
+.firebaserc
+
+# ── IDE & dev tooling ────────────────────────────────────────────────────────
+.idea/
+.vscode/
+*.iml
+.claude/
+claude_tasks/
+CLAUDE.md
+
+# ── OS ───────────────────────────────────────────────────────────────────────
+.DS_Store
+Thumbs.db
+
+# ── Firebase local cache ─────────────────────────────────────────────────────
+.firebase/
