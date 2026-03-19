@@ -25,7 +25,7 @@ firebase.json             # Firebase project config
 
 ---
 
-## ⚠️ Files NOT in This Repo (Must Be Created After Cloning)
+## Files NOT in This Repo (Must Be Created After Cloning)
 
 The following files are **gitignored** because they contain secrets or project-specific config. Create them before building.
 
@@ -62,7 +62,7 @@ Release signing keystore for APK/AAB.
 Place at: app/android/upload-keystore.jks
 ```
 
-> ⚠️ If publishing on Google Play, use the **original** keystore. A new one cannot update the same listing.
+> If publishing on Google Play, use the **original** keystore. A new one cannot update the same listing.
 
 ---
 
