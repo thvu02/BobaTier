@@ -1,19 +1,17 @@
 import 'package:async/async.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
-import 'package:firebase_auth/firebase_auth.dart';
+import 'package:bobatier/features/auth/providers/auth_provider.dart';
 import 'package:bobatier/features/social/models/social_models.dart';
 import 'package:bobatier/features/ranking/models/ranking.dart';
 import 'package:flutter_riverpod/legacy.dart';
 
 final _db = FirebaseFirestore.instance;
 
-String? get _uid => FirebaseAuth.instance.currentUser?.uid;
-
 // ── Friends list (accepted only) ──
 
 final friendsProvider = StreamProvider<List<FriendProfile>>((ref) {
-  final uid = _uid;
+  final uid = ref.watch(currentUserProvider)?.uid;
   if (uid == null) return Stream.value([]);
 
   final col = _db.collection('friendships');
@@ -46,7 +44,7 @@ final friendsProvider = StreamProvider<List<FriendProfile>>((ref) {
 // ── Pending friend requests (incoming) ──
 
 final pendingRequestsProvider = StreamProvider<List<Friendship>>((ref) {
-  final uid = _uid;
+  final uid = ref.watch(currentUserProvider)?.uid;
   if (uid == null) return Stream.value([]);
 
   final col = _db.collection('friendships');
@@ -73,7 +71,7 @@ final pendingRequestsProvider = StreamProvider<List<Friendship>>((ref) {
 final activityFeedProvider = FutureProvider<List<FeedItem>>((ref) async {
   final friends = ref.watch(friendsProvider).value ?? [];
   final items = <FeedItem>[];
-  final uid = _uid;
+  final uid = ref.watch(currentUserProvider)?.uid;
 
   for (final friend in friends.take(10)) {
     final snap = await _db
@@ -137,7 +135,7 @@ final activityFeedProvider = FutureProvider<List<FeedItem>>((ref) async {
 // ── Want to try ──
 
 final wantToTryProvider = StreamProvider<List<WantToTryItem>>((ref) {
-  final uid = _uid;
+  final uid = ref.watch(currentUserProvider)?.uid;
   if (uid == null) return Stream.value([]);
 
   return _db.collection('wantToTry')

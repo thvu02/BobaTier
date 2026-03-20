@@ -194,7 +194,7 @@ final currentUserProvider = Provider<AppUser?>((ref) {
 });
 
 final userStatsStreamProvider = StreamProvider<UserStats>((ref) {
-  final uid = FirebaseAuth.instance.currentUser?.uid;
+  final uid = ref.watch(currentUserProvider)?.uid;
   if (uid == null) return Stream.value(const UserStats());
   return FirebaseFirestore.instance
       .collection('users')
